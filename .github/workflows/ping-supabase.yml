@@ -1,0 +1,16 @@
+name: Ping Supabase Weekly
+
+on:
+  schedule:
+    - cron: "0 8 * * 1" # каждый понедельник в 08:00 UTC
+  workflow_dispatch:
+
+jobs:
+  ping:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Ping Supabase REST API
+        run: |
+          curl -X GET "https://nyhbivncneuhdpefcvqr.supabase.co/rest/v1/cabins?select=id" \
+            -H "apikey: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im55aGJpdm5jbmV1aGRwZWZjdnFyIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDIyNjA1MDgsImV4cCI6MjA1NzgzNjUwOH0.ICsutFdsnfdi6DEbO-9V5fMAm_gDLC19ui11SlcMibY" \
+            -H "Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im55aGJpdm5jbmV1aGRwZWZjdnFyIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDIyNjA1MDgsImV4cCI6MjA1NzgzNjUwOH0.ICsutFdsnfdi6DEbO-9V5fMAm_gDLC19ui11SlcMibY"
